@@ -1,2 +1,3 @@
 Manifest-Version: 1.0
-Class-Path: lib/weather.lib.jar
+Class-Path: axis-1.4.jar jaxrpc-api-1.1.jar commons-logging-1.1.1.jar
+

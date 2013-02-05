@@ -10,14 +10,14 @@
 	<packaging>war</packaging>
 	<version>1.0</version>
 
-       <dependencies>
-                <dependency>
-                        <groupId>com.glroland.weather</groupId>
-                        <artifactId>weather-lib</artifactId>
-<version>1.0</version>
-<scope>provided</scope>
-                </dependency>
-        </dependencies>
+	<dependencies>
+		<dependency>
+			<groupId>com.glroland.weather</groupId>
+			<artifactId>weather-lib</artifactId>
+			<version>1.0</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
 
 	<build>
 		<directory>${project.basedir}/target</directory>
@@ -37,5 +37,36 @@
 				<directory>${project.basedir}/src/test/resources</directory>
 			</testResource>
 		</testResources>
+
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<useProjectReferences>true</useProjectReferences>
+					<downloadSources>false</downloadSources>
+					<downloadJavadocs>false</downloadJavadocs>
+					<jeeversion>5.0</jeeversion>
+
+					<wtpmanifest>true</wtpmanifest>
+					<wtpversion>2.0</wtpversion>
+					<wtpapplicationxml>true</wtpapplicationxml>
+
+					<additionalProjectFacets>
+						<jst.java>1.6</jst.java>
+						<jst.web>2.5</jst.web>
+						<wst.jsdt.web>1.0</wst.jsdt.web>
+					</additionalProjectFacets>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+			</plugin>
+
+		</plugins>
 	</build>
 </project>

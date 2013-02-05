@@ -3,55 +3,82 @@
 	<parent>
 		<groupId>com.glroland</groupId>
 		<artifactId>weather</artifactId>
-<version>1.0</version>
+		<version>1.0</version>
 	</parent>
 	<groupId>com.glroland.weather</groupId>
 	<artifactId>weather-app</artifactId>
 	<packaging>ear</packaging>
 	<version>1.0</version>
 
-       <dependencies>
-                <dependency>
-                        <groupId>com.glroland.weather</groupId>
-                        <artifactId>weather-web</artifactId>
-<version>1.0</version>
-<type>war</type>
-<scope>compile</scope>
-                </dependency>
-                <dependency>
-                        <groupId>com.glroland.weather</groupId>
-                        <artifactId>weather-lib</artifactId>
-<version>1.0</version>
-<type>jar</type>
-<scope>compile</scope>
-                </dependency>
-        </dependencies>
+	<dependencies>
+		<dependency>
+			<groupId>com.glroland.weather</groupId>
+			<artifactId>weather-web</artifactId>
+			<version>1.0</version>
+			<type>war</type>
+			<scope>compile</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.glroland.weather</groupId>
+			<artifactId>weather-lib</artifactId>
+			<version>1.0</version>
+			<type>jar</type>
+			<scope>compile</scope>
+		</dependency>
+	</dependencies>
 
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-ear-plugin</artifactId>
-        <version>2.6</version>
-        <configuration>
-            <version>5</version>
-            <defaultLibBundleDir>lib</defaultLibBundleDir>
-            <modules>
-              <webModule>
-                 <groupId>com.glroland.weather</groupId>
-                 <artifactId>weather-web</artifactId>
-                 <contextRoot>weather</contextRoot>
-                 <bundleFileName>weather.war</bundleFileName>
-              </webModule>
-<jarModule>
-	<groupId>com.glroland.weather</groupId>
-	<artifactId>weather-lib</artifactId>
-	<bundleFileName>weather.jar</bundleFileName>
-</jarModule>
-            </modules>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+	<build>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<useProjectReferences>true</useProjectReferences>
+					<downloadSources>false</downloadSources>
+					<downloadJavadocs>false</downloadJavadocs>
+					<jeeversion>5.0</jeeversion>
+
+					<wtpmanifest>true</wtpmanifest>
+					<wtpversion>2.0</wtpversion>
+					<wtpapplicationxml>true</wtpapplicationxml>
+
+					<additionalProjectFacets>
+						<jst.ear>5.0</jst.ear>
+					</additionalProjectFacets>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<version>5</version>
+					<defaultLibBundleDir>lib</defaultLibBundleDir>
+					<modules>
+						<webModule>
+							<groupId>com.glroland.weather</groupId>
+							<artifactId>weather-web</artifactId>
+							<contextRoot>weather</contextRoot>
+							<bundleFileName>weather.war</bundleFileName>
+						</webModule>
+						<jarModule>
+							<groupId>com.glroland.weather</groupId>
+							<artifactId>weather-lib</artifactId>
+							<bundleFileName>weather.jar</bundleFileName>
+						</jarModule>
+					</modules>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-ear-plugin</artifactId>
+			</plugin>
+
+		</plugins>
+	</build>
 
 </project>
